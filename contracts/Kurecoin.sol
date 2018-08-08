@@ -43,7 +43,7 @@ contract Kurecoin is ERC223Interface, Ownable, Pausable, Destructible{
    * @param _value Amount of tokens that will be transferred.
    * @param _data  Transaction metadata.
    */
-  function transfer(address _to, uint _value, bytes _data) {
+  function transfer(address _to, uint _value, bytes _data) whenNotPaused {
     // Standard function transfer similar to ERC20 transfer with no _data .
     // Added due to backwards compatibility reasons .
     uint codeLength;
@@ -71,7 +71,7 @@ contract Kurecoin is ERC223Interface, Ownable, Pausable, Destructible{
    * @param _to    Receiver address.
    * @param _value Amount of tokens that will be transferred.
    */
-  function transfer(address _to, uint _value) {
+  function transfer(address _to, uint _value) whenNotPaused {
     uint codeLength;
     bytes memory empty;
 
