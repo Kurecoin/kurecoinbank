@@ -1,5 +1,6 @@
 pragma solidity ^0.4.24;
 
+import "openzeppelin-solidity/contracts/token/ERC20/StandardToken.sol";
 import './ERC223Interface.sol';
 import './ERC223ReceivingContract.sol';
 import './SafeMath.sol';
@@ -8,10 +9,11 @@ import "openzeppelin-solidity/contracts/lifecycle/Destructible.sol";
 import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
 
 
+
 /**
  * @title Reference implementation of the ERC223 standard token.
  */
-contract Kurecoin is ERC223Interface, Ownable, Pausable, Destructible{
+contract Kurecoin is StandardToken, ERC223Interface, Ownable, Pausable, Destructible{
   using SafeMath for uint;
 
   string public name = "Kurecoin";      //  (token name)
